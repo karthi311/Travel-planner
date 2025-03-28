@@ -4,8 +4,8 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Load Hugging Face Model
-tokenizer = AutoTokenizer.from_pretrained("unsloth/Llama-3.2-1B")
-model = AutoModelForCausalLM.from_pretrained("unsloth/Llama-3.2-1B")
+tokenizer = AutoTokenizer.from_pretrained("unsloth/Llama-3.2-1B", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("unsloth/Llama-3.2-1B", trust_remote_code=True)
 
 def generate_text(prompt):
     inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True, max_length=1024)
